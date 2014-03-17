@@ -1,56 +1,55 @@
 Tineetees::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  #root page with navbar, products, footer
+  root "welcome#index"
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  #navbar: for customers logged in, allow them to edit their account info
+  get "/account/:id", to: "user#edit"
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  #navbar: about page for website
+  get "/about", to: "welcome#about"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  #navbar: sign in form
+  get "/signin", to: "session#new"
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  #navbar: contact submission form
+  get "/contact", to: "welcome#contact"
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  #individual product page
+  get "/product/:id", to: "product#read"
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  #shopping cart for hipsters. the items in the basket are saved from session data
+  #this function is still a little fuzzy because you need to be able to have the
+  #items persistant after logging out
+  #ask PJ
+  get "/basket", to: "order#new"
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  #checkout page after reviewing shopping cart where users who don't have accounts
+  #can input their account info
+  #and optionally create an account.
+  #we may need to integrate with stripe
+  #sends request to create an order after submitting (resource below)
+  get "/checkout", to: "order#checkout"
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  #info about completed order after it is created
+  get "/confirmation", to: "order#read"
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  #Dashboard for admin. If user signing in is an admin, they are redirected to this page.
+  get "/admin-dash", to: "user#admin"
+
+  #a list of requests from Philippe to Yolanda of products to be manufactured. Possible actions depends on
+  #whether Phillipe or Yolanda are logged in (resources below)
+  get "/admin-dash/supply_request", to: "supply_request#index"
+
+  #list of all products Phillipe has created. (resources to edit/destroy/create are below)
+  get "/admin-dash/product", to: "product#index"
+
+  #list of all orders made by customers
+  get "/admin-dash/orders", to: "order#index"
+
+  #used to sign in/out AND hold info about shopping cart
+  resources :session, only: [:destroy, :create]
+
+  resources :product, only: [:edit, :destroy, :create]
+  resources :supply_request, only: [:create, :edit]
+  resources :order, only: [:create]
 end
