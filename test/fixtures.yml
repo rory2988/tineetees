@@ -1,0 +1,24 @@
+fedex:
+  account: 510087488
+  login: 118621971
+  password: 9QZkz3z7ichcHoSHBEBsWDw1i
+  test: true
+  key: m587dwdlIYGY9nte
+fedex_freight:
+  account: 510087020
+  shipping_address1: 1202 Chalet Ln
+  shipping_address2: Do Not Delete - Test Account
+  shipping_city: Harrison
+  shipping_postal_code: Harrison
+  shipping_state: AR
+  shipping_country: USA
+  billing_address1:  2000 Freight LTL Testing
+  billing_address2: Do Not Delete - Test Account
+  billing_city: Harrison
+  billing_postal_code: 72601
+  billing_state: AR
+  billing_country: USA
+  payment_type: SENDER
+  freight_class: CLASS_050
+  packaging: PALLET
+  role: SHIPPER
