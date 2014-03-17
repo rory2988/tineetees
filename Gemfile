@@ -59,8 +59,11 @@ group :development, :test do
   # test helper libraries
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'ffaker'
 end
 
-gem 'ffaker'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'rails_12factor' # for heroku deployment
+
+

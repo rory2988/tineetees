@@ -19,5 +19,17 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+
+development:
+  adapter: postgresql
+  database: tineetees_dev
+  pool: 5
+  timeout: 5000
+
+
+test:
+  adapter: postgresql
+  database: tineetees_test
+  pool: 5
+  timeout: 5000
+
