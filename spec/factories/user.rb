@@ -8,8 +8,8 @@ FactoryGirl.define do
     shipping_address { Faker::Address.street_name }
     password "jess"
     password_confirmation "jess"
-    payment_info "?"
+    # payment_info "?"
     contact [true, false].sample
-    type "customer"
+    # type "customer"
   end
 end
