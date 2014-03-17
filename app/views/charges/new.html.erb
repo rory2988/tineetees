@@ -8,5 +8,8 @@
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="stripe test!"
+          data-billing-address=true
           data-amount="500"></script>
 <% end %>
+
+
