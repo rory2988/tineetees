@@ -1,7 +1,7 @@
-require 'spec-helper'
+require 'spec_helper'
 
 describe "an admin can log in" do
-  let(:admin) {Admin.create(first_name: "Phileepay", email: "phileepay@tineete.es", password: "tees", password_confirmation: "tees")}
+  let(:admin) { FactoryGirl.create(:user, type: "admin") }
 
   it "logs in" do
       login(admin)
@@ -12,7 +12,7 @@ describe "an admin can log in" do
   end
 
   def login(admin)
-    visit "/"
+    visit "/admin"
     click_link "Log in"
     fill_in :email, with: admin.email
     fill_in :password, with: admin.password
