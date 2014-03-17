@@ -61,4 +61,6 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+gem 'ffaker'
+
 gem 'rails_12factor' # for heroku deployment
