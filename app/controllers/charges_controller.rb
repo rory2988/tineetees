@@ -9,7 +9,7 @@ class ChargesController < ApplicationController
   @amount = 500
 
   customer = Stripe::Customer.create(
-    :email => current_user.email,
+    :email => "rorybudnick@gmail.com",
     :card  => params[:stripeToken]
   )
 
@@ -23,6 +23,16 @@ class ChargesController < ApplicationController
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path
+
+  respond_to do |format|
+    if charge.create
+      UserMailer.purchase_email(customer).deliver
+
+      format.html { redirect_to(charges_path) }
+      # format.json { render json: customer, status: :created, location: customer }
+
+    end
+  end
   end
 
 end
