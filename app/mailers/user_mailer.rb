@@ -6,4 +6,5 @@ class UserMailer < ActionMailer::Base
     # @user = user
     mail(to: "rorybudnick@gmail.com", subject: "New Purchase Has Been Made")
   end
+
 end
