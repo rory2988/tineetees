@@ -1,0 +1,73 @@
+<form>
+  <div>
+    Product Name
+    <input type="text" name="name"></input>
+  </div>
+  <div>
+    Description / Poem
+    <input type="text" name="description"></input>
+  </div>
+  <div>
+    Price
+    <input type="text" name="price"></input>
+  </div>
+  <div>
+    Image Url
+    <input type="text" name="image"></input>
+  </div>
+  <div>
+    Quantity On Hand
+    <input type="text" name="on_hand"></input>
+  </div>
+  <div>
+    Quantity On Order
+    <input type="text" name="on_order"></input>
+  </div>
+  <div>
+    <button id="new-product" type="submit">Add Product</button>
+  </div>
+
+  <div class="product-list">
+    <ul>
+      <% @products.each do |product| %>
+      <li>
+        <a href="/products/<%= product.id %>"><%= product.name %></a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+
+</form>
+
+<script>  
+  function addProduct(name, description, price, image, on_hand, on_order) {
+  $.post("/products?name="+name+"&description="+description+"&price="+price+"&image="+image+"&on_hand="+on_hand+"on_order="+on_order);
+  };
+
+  $("button#new-product").on('submit', function(e){
+    e.preventDefault;
+    addProduct(
+        $("input[name='name']").val(),
+        $("input[name='description']").val(),
+        $("input[name='price']").val(),
+        $("input[name='image']").val(),
+        $("input[name='on_hand']").val(),
+        $("input[name='on_order']").val()
+      );
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

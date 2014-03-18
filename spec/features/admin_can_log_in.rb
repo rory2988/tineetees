@@ -1,11 +1,10 @@
-require 'spec-helper'
+require 'spec_helper'
 
 describe "an admin can log in" do
-  let(:admin) {Admin.create(first_name: "Phileepay", email: "phileepay@tineete.es", password: "tees", password_confirmation: "tees")}
+  let(:admin) { FactoryGirl.create(:user, type: "Admin") }
 
   it "logs in" do
       login(admin)
-
     within ".dashboard" do
       expect(page).to have_content "Hello, #{admin.first_name}"
     end

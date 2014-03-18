@@ -1,15 +1,15 @@
 FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email } 
-    firstname { Faker::Name.first_name }
-    lastname { Faker::Name.last_name }
-    phone_number { Faker::PhoneNumber.cell_phone }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    phone_number { Faker::PhoneNumber.phone_number }
     billing_address { Faker::Address.street_name }
     shipping_address { Faker::Address.street_name }
     password "jess"
     password_confirmation "jess"
-    payment_info "?"
+    # payment_info "?"
     contact [true, false].sample
-    type "customer"
+    # type "customer"
   end
 end
