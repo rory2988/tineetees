@@ -1,0 +1,24 @@
+<!-- Add AJAX to make order -->
+<!-- Validate on routes -->
+
+
+<h1>Check Out</h1>
+
+<table>
+  <tr>
+    <td>Product Name</td>
+    <td>Price</td>
+    <td></td>
+  </tr>
+  <tr>
+    <%session["cart"].each do |product| %>
+    <td><%=product.name%></td>
+    <td><%=product.price%></td>
+    <td></td>
+    <%end%>
+  </tr>
+</table>
+
+<div>Add Strip Information Here</div>
+
+<a href="/Confirmation"><button>Purchase</button></a>

@@ -50,7 +50,10 @@ Tineetees::Application.routes.draw do
   #supplier landing page
   get "/supplier", to: "users#supplier"
 
+  put "/update_cart", to: "session#update_cart"
+
   #used to sign in/out AND hold info about shopping cart
+
   resources :session,         only: [:destroy, :create]
 
   resources :products,        only: [:update, :show, :edit, :destroy, :create]
@@ -58,5 +61,4 @@ Tineetees::Application.routes.draw do
   resources :supply_requests, only: [:create, :edit]
   resources :orders,          only: [:create]
   resources :users,           only: [:show, :edit]
-
 end

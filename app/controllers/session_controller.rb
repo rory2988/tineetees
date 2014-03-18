@@ -21,5 +21,12 @@ class SessionController < ApplicationController
 
   end
 
+  def update_cart
+    index = params[:index]
+    index = index.to_i
+    session["cart"].delete_at(index)
+    render json: session["cart"][index]
+  end 
+
 
 end

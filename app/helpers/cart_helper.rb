@@ -5,4 +5,4 @@ module CartHelper
     session[:cart].push product
   end 
 
-end 
+end
