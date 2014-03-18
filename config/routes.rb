@@ -15,7 +15,7 @@ Tineetees::Application.routes.draw do
   get "/contact", to: "welcome#contact"
 
   #individual product page
-  get "/product/:id", to: "product#read"
+  get "/product/:id", to: "product#show"
 
   #shopping cart for hipsters. the items in the basket are saved from session data
   #this function is still a little fuzzy because you need to be able to have the

@@ -1,0 +1,20 @@
+<h1>Shopping Cart</h1>
+
+<table>
+  <tr>
+    <td>Product Name</td>
+    <td>Price</td>
+    <td></td>
+  </tr>
+  <tr>
+    <%session["cart"].each do |product| %>
+    <td><%=product.name%></td>
+    <td><%=product.price%></td>
+    <td></td>
+    <%end%>
+  </tr>
+
+</table>
+
+<a href="/checkout"><button>CheckOut</button></a>
+
