@@ -3,7 +3,7 @@ Tineetees::Application.routes.draw do
   root "welcome#index"
 
   #navbar: for customers logged in, allow them to edit their account info
-  get "/account/:id", to: "user#edit"
+  get "/account/:id", to: "users#edit"
 
   #navbar: about page for website
   get "/about", to: "welcome#about"
@@ -31,7 +31,7 @@ Tineetees::Application.routes.draw do
   get "/confirmation", to: "order#read"
 
   #Dashboard for admin. If user signing in is an admin, they are redirected to this page.
-  get "/admin-dash", to: "user#admin"
+  get "/admin-dash", to: "users#admin"
 
   #a list of requests from Philippe to Yolanda of products to be manufactured. Possible actions depends on
   #whether Phillipe or Yolanda are logged in (resources below)
@@ -42,6 +42,9 @@ Tineetees::Application.routes.draw do
 
   #list of all orders made by customers
   get "/admin-dash/orders", to: "order#index"
+
+  #supplier landing page
+  get "/supplier", to: "users#supplier"
 
   #used to sign in/out AND hold info about shopping cart
   resources :session, only: [:destroy, :create]

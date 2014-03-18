@@ -3,9 +3,9 @@ FactoryGirl.define do
     name { Faker::Name.name } 
     description { Faker::Lorem.sentence }
     image "http://placekitten.com/200/200"
-    price { Faker::Number.number(3) }
+    price { 400 }
     sold 0
     on_hand 0
-    on_order { Faker::Number.number(2) }
+    on_order { 10 }
   end
 end
