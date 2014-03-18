@@ -1,7 +1,51 @@
 <h1>Build Queue</h1>
 
-<ul>
+
+
 <% @products_on_order.each do |item| %>
-  <li><%= item.name %> <%= item.on_order %></li>
-  <%end%>
-</ul>
+  <ul class="product_names", id = <%=item.id %> >
+    <li> <%= item.name %> </li>
+    <span id = <%=item.id %>> </span>
+    <ul> <% (item.on_order).times do %>
+      <li id = <%=item.id %> > <%= item.name %> <input class="complete" type="checkbox"> </li>
+      <%end%> 
+    </ul>
+  </ul>
+<%end%>
+
+<script>
+
+$("input").on("change", function(){
+  $.ajax({ url: '/products/' + this.parentElement.id, 
+           method: 'put',
+           data: {id: this.parentElement.id, update: 1}
+  }).done(function(response){
+    console.log("SUCCESS");
+    console.log(response);
+  }).error(function(){
+    console.log("ERROR:");
+    console.log(this);
+  });
+ updateProductTotal();
+});
+
+
+var updateProductTotal = function(){
+//   var span = $('span')[0]
+//   $.getJSON('/products/' + span.id, function(response){
+//     span.textContent = response.on_order;
+
+//   })
+// };
+
+  $.each('span', function(index, value){
+    var span = value;
+    $.getJSON('/products/' + span.id, function(response){
+        span.textContent = response.on_order;
+    });
+  });
+};
+
+updateProductTotal(); 
+
+</script>
