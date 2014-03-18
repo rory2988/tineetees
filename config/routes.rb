@@ -15,7 +15,7 @@ Tineetees::Application.routes.draw do
   get "/contact", to: "welcome#contact"
 
   #individual product page
-  get "/product/:id", to: "product#read"
+  get "/product/:id", to: "product#show"
 
   #shopping cart for hipsters. the items in the basket are saved from session data
   #this function is still a little fuzzy because you need to be able to have the
@@ -41,7 +41,7 @@ Tineetees::Application.routes.draw do
   get "/admin-dash/supply_request", to: "supply_request#index"
 
   #list of all products Phillipe has created. (resources to edit/destroy/create are below)
-  get "/admin-dash/product", to: "product#index"
+  get "/admin-dash/product", to: "products#index"
 
   #list of all orders made by customers
   get "/admin-dash/orders", to: "order#index"
@@ -49,9 +49,9 @@ Tineetees::Application.routes.draw do
   #used to sign in/out AND hold info about shopping cart
   resources :session, only: [:destroy, :create]
 
-  resources :product, only: [:edit, :destroy, :create]
+  resources :products, only: [:edit, :destroy, :create]
   resources :supply_request, only: [:create, :edit]
-  resources :order, only: [:create]
+  resources :orders, only: [:create]
 
   resources :charges
   resources :shipments
