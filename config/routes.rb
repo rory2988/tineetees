@@ -13,6 +13,8 @@ Tineetees::Application.routes.draw do
 
   #navbar: contact submission form
   get "/contact", to: "welcome#contact"
+  #post to contact, send email to admin
+  post "/contact", to: "contact#create"
 
   #individual product page
   get "/product/:id", to: "product#show"
