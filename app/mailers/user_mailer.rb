@@ -4,6 +4,6 @@ class UserMailer < ActionMailer::Base
 
   def purchase_email
     # @user = user
-    mail(to: "kevin.mcalear@gmail.com", subject: "New Purchase Has Been Made")
+    mail(to: "rorybudnick@gmail.com", subject: "New Purchase Has Been Made")
   end
 end
