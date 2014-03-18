@@ -23,6 +23,7 @@
   padding: 50px;
 }
 
+
 header {
   position: fixed !important;
   width: 100%;
@@ -60,3 +61,8 @@ header nav ul {
 #grid img {
   width: 300px;
 }*/
+
+.page-wrapper {
+  margin-top: 10%;
+  margin-left: 20%;
+}
