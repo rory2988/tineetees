@@ -51,7 +51,7 @@ Tineetees::Application.routes.draw do
   #used to sign in/out AND hold info about shopping cart
   resources :session,         only: [:destroy, :create]
 
-  resources :products,        only: [:show, :edit, :destroy, :create]
+  resources :products,        only: [:update, :show, :edit, :destroy, :create]
 
   resources :supply_requests, only: [:create, :edit]
   resources :orders,          only: [:create]
