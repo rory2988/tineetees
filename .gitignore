@@ -19,3 +19,4 @@ pickle-email-*.html
 config/initializers/secret_token.rb
 config/database.yml
 test/fixtures.yml
+.DS_Store
