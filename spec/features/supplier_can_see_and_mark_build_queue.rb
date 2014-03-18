@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe "a supplier can log in" do
-  let(:supplier) {Supplier.create(first_name: "Yolanda", email: "yolanda@tineetees.co", password: "tees", password_confirmation: "tees")}
+  let!(:supplier) {Supplier.create(first_name: "Yolanda", email: "yolanda@tineetees.co", password: "tees", password_confirmation: "tees")}
 
-  let(:order) {FactoryGirl.create(:product, on_order: 5)}
+  let!(:order) {FactoryGirl.create(:product, on_order: 5)}
 
   it "logs in" do
     login(supplier)
 
-    within ".dashboard" do
+    within ".build_queue" do
       expect(page).to have_content "Hello, #{supplier.first_name}"
     end
   end
@@ -26,10 +26,11 @@ describe "a supplier can log in" do
 
   def login(supplier)
     visit "/supplier"
-    click_link "Log in"
-    fill_in :email, with: supplier.email
-    fill_in :password, with: supplier.password
-    click_button "Log in"
+    save_and_open_page
+    # click_link "Log in"
+    # fill_in :email, with: supplier.email
+    # fill_in :password, with: supplier.password
+    # click_button "Log in"
   end
 end
 
