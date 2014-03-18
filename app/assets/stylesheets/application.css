@@ -21,3 +21,8 @@
   width: 500px;
   padding: 50px;
 }
+
+.page-wrapper {
+  margin-top: 10%;
+  margin-left: 20%;
+}
