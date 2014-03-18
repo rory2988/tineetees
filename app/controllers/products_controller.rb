@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
 
 
   def show
-    binding.pry
     response = Product.find_by(id: params[:id])
     render json: response
   end

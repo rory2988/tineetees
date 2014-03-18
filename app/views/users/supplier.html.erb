@@ -27,24 +27,18 @@ $("input").on("change", function(){
     console.log(this);
   });
  updateProductTotal();
+ this.parentElement.remove();
 });
 
 
 var updateProductTotal = function(){
-//   var span = $('span')[0]
-//   $.getJSON('/products/' + span.id, function(response){
-//     span.textContent = response.on_order;
-
-//   })
-// };
-
-  $.each('span', function(index, value){
+  $.each($('span'), function(index, value){
     var span = value;
     $.getJSON('/products/' + span.id, function(response){
         span.textContent = response.on_order;
     });
   });
-};
+}
 
 updateProductTotal(); 
 
