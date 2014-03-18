@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Product.create(name: 'Product 1', description: 'Bacon ipsum dolor sit amet hamburger turkey ham hock ground round ham filet mignon prosciutto flank. Brisket ball tip kevin swine tri-tip salami leberkas andouille pig beef.', image:'http://asaltedtee.files.wordpress.com/2012/12/joy-t-shirt-mock-up1.jpg?w=600', price: 600)
+
+Product.create(name: 'Product 2', description: 'Bacon ipsum dolor sit amet hamburger turkey ham hock ground round ham filet mignon prosciutto flank. Brisket ball tip kevin swine tri-tip salami leberkas andouille pig beef.', image:'http://asaltedtee.files.wordpress.com/2012/12/joy-t-shirt-mock-up1.jpg?w=600', price: 650)
+
+Product.create(name: 'Product 3', description: 'Bacon ipsum dolor sit amet hamburger turkey ham hock ground round ham filet mignon prosciutto flank. Brisket ball tip kevin swine tri-tip salami leberkas andouille pig beef.', image:'http://asaltedtee.files.wordpress.com/2012/12/joy-t-shirt-mock-up1.jpg?w=600', price: 700)
+
+Product.create(name: 'Product 4', description: 'Bacon ipsum dolor sit amet hamburger turkey ham hock ground round ham filet mignon prosciutto flank. Brisket ball tip kevin swine tri-tip salami leberkas andouille pig beef.', image:'http://asaltedtee.files.wordpress.com/2012/12/joy-t-shirt-mock-up1.jpg?w=600', price: 750)
+
+Product.create(name: 'Product 5', description: 'Bacon ipsum dolor sit amet hamburger turkey ham hock ground round ham filet mignon prosciutto flank. Brisket ball tip kevin swine tri-tip salami leberkas andouille pig beef.', image:'http://asaltedtee.files.wordpress.com/2012/12/joy-t-shirt-mock-up1.jpg?w=600', price: 250)
+
+Product.create(name: 'Product 6', description: 'Bacon ipsum dolor sit amet hamburger turkey ham hock ground round ham filet mignon prosciutto flank. Brisket ball tip kevin swine tri-tip salami leberkas andouille pig beef.', image:'http://asaltedtee.files.wordpress.com/2012/12/joy-t-shirt-mock-up1.jpg?w=600', price: 250)

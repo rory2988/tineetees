@@ -7,8 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <section id="branding">
+    <%= image_tag("tineetee1.jpg")%>
+  </section>
+
+  <nav>
+    <ul>
+      <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Account", "/account/" %></li>
+      <li><%= link_to "Cart", basket_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to("Log Out", "/session", method: "delete") %></li>  
+      <% else %>
+        <li><%= link_to("Log In","/session") %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
 
 <%= yield %>
+
+<footer>
+  
+</footer>
 
 </body>
 </html>

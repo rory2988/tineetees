@@ -11,3 +11,52 @@
  *= require_self
  *= require_tree .
  */
+
+.product-image {
+  float: left;
+  margin: auto;
+  padding: 50px;
+}
+
+.products {
+  width: 500px;
+  padding: 50px;
+}
+
+header {
+  position: fixed !important;
+  width: 100%;
+  z-index: 10000;
+}
+
+#branding img {
+  height: 350px;
+}
+
+#branding {
+  float: left;  
+}
+
+header nav ul {
+  list-style: none; 
+  overflow: hidden; 
+  position: relative;
+  float: right;
+  margin: 20px;
+  padding: 10px;
+  outline: solid black 3px;
+}
+  header nav ul li { 
+    font-size: 24px;
+    float: left; 
+    margin: 0 20px 0 20px;
+  }
+
+/*#grid {
+  display: inline-block;
+  width: 700px;
+}
+
+#grid img {
+  width: 300px;
+}*/

@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
 
-  def show
-  end
-
   def index
     @products = Product.all
+  end
+
+  def show
+    @product = Product.find_by(id: params[:id])
   end
 
   def create
@@ -17,6 +18,10 @@ class ProductsController < ApplicationController
         on_hand: params[:on_hand],
         on_order: params[:on_order]
       )
+  end
+
+  def product_params
+    params.permit(:name, :description, :image, :price, :sold, :on_hand, :on_order)
   end
 
 end
