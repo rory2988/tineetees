@@ -62,8 +62,8 @@ group :development, :test do
   gem 'ffaker'
 end
 
+# libraries for purchasing and shipping
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'active_shipping'
 
 gem 'rails_12factor' # for heroku deployment
-
-
