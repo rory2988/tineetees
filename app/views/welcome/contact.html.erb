@@ -1,0 +1,11 @@
+<h1>Contact Us</h1>
+
+<%= form_tag "/admin-dash" do %>
+<%= label_tag :first_name, "first name" %>
+<%= text_field_tag(:first_name) %></br>
+<%= label_tag :email, "email" %>
+<%= text_field_tag(:email) %></br>
+<%= label_tag :your_message, "Your Message" %>
+<%= text_area_tag(:your_message) %>
+<%= submit_tag("Send") %>
+<% end  %>
