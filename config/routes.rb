@@ -13,6 +13,8 @@ Tineetees::Application.routes.draw do
 
   #navbar: contact submission form
   get "/contact", to: "welcome#contact"
+  #post to contact, send email to admin
+  post "/contact", to: "contact#create"
 
   #shopping cart for hipsters. the items in the basket are saved from session data
   #this function is still a little fuzzy because you need to be able to have the
