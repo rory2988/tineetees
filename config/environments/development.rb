@@ -33,7 +33,7 @@ Tineetees::Application.configure do
     port:                 587,
     domain:               'gmail.com',
     user_name:            'tineetees',
-    password:             'tineeteespassword',
+    password:             ENV['TINEE_TEES_PW'],
     authentication:       'plain',
     enable_starttls_auto: true  }
 end
