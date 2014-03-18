@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "an admin can log in" do
-  let(:admin) { FactoryGirl.create(:user, type: "admin") }
+  let(:admin) { FactoryGirl.create(:user, type: "Admin") }
 
   it "logs in" do
       login(admin)
