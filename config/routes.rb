@@ -54,4 +54,5 @@ Tineetees::Application.routes.draw do
   resources :order, only: [:create]
 
   resources :charges
+  resources :shipments
 end
