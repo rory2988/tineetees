@@ -3,7 +3,7 @@ Tineetees::Application.routes.draw do
   root "welcome#index"
 
   #navbar: for customers logged in, allow them to edit their account info
-  get "/account/:id", to: "users#edit"
+  #get "/account/:id", to: "users#edit" #PJ: removing this, as it should, in REST, be below...
 
   #navbar: about page for website
   get "/about", to: "welcome#about"
@@ -13,9 +13,6 @@ Tineetees::Application.routes.draw do
 
   #navbar: contact submission form
   get "/contact", to: "welcome#contact"
-
-  #individual product page
-  get "/product/:id", to: "product#show"
 
   #shopping cart for hipsters. the items in the basket are saved from session data
   #this function is still a little fuzzy because you need to be able to have the
@@ -33,30 +30,31 @@ Tineetees::Application.routes.draw do
   #info about completed order after it is created
   get "/confirmation", to: "order#read"
 
-  #Dashboard for admin. If user signing in is an admin, they are redirected to this page.
-  get "/admin-dash", to: "users#admin"
+  resources :charges
+  resources :shipments
 
-  #a list of requests from Philippe to Yolanda of products to be manufactured. Possible actions depends on
-  #whether Phillipe or Yolanda are logged in (resources below)
-  get "/admin-dash/supply_request", to: "supply_request#index"
+  # Dashboard for admin.
+  namespace :admin_dash do
+    get "/", to: "users#admin" #if user signing in is an admin, they are redirected to this page.
 
-  #list of all products Phillipe has created. (resources to edit/destroy/create are below)
-  get "/admin-dash/product", to: "products#index"
+    # A list of requests from Admin to Supplier of products to be manufactured.
+    # Possible actions depends on whether Admin or Supplier are logged in...
+    get "/supply_requests", to: "supply_requests#index"
 
-  #list of all orders made by customers
-  get "/admin-dash/orders", to: "order#index"
+    get "/products", to: "products#index"
+    get "/orders", to: "order#index"
+  end
 
   #supplier landing page
   get "/supplier", to: "users#supplier"
 
   #used to sign in/out AND hold info about shopping cart
-  resources :session, only: [:destroy, :create]
+  resources :session,         only: [:destroy, :create]
 
-  resources :products, only: [:show, :edit, :destroy, :create]
+  resources :products,        only: [:show, :edit, :destroy, :create]
 
-  resources :supply_request, only: [:create, :edit]
-  resources :orders, only: [:create]
+  resources :supply_requests, only: [:create, :edit]
+  resources :orders,          only: [:create]
+  resources :users,           only: [:show, :edit]
 
-  resources :charges
-  resources :shipments
 end
