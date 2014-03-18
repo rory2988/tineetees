@@ -14,9 +14,6 @@ Tineetees::Application.routes.draw do
   #navbar: contact submission form
   get "/contact", to: "welcome#contact"
 
-  #individual product page
-  get "/product/:id", to: "product#read"
-
   #shopping cart for hipsters. the items in the basket are saved from session data
   #this function is still a little fuzzy because you need to be able to have the
   #items persistant after logging out
@@ -49,7 +46,7 @@ Tineetees::Application.routes.draw do
   #used to sign in/out AND hold info about shopping cart
   resources :session, only: [:destroy, :create]
 
-  resources :product, only: [:edit, :destroy, :create]
+  resources :products, only: [:show, :edit, :destroy, :create]
   resources :supply_request, only: [:create, :edit]
   resources :order, only: [:create]
 
