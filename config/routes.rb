@@ -38,7 +38,7 @@ Tineetees::Application.routes.draw do
   get "/admin-dash/supply_request", to: "supply_request#index"
 
   #list of all products Phillipe has created. (resources to edit/destroy/create are below)
-  get "/admin-dash/product", to: "product#index"
+  get "/admin-dash/product", to: "products#index"
 
   #list of all orders made by customers
   get "/admin-dash/orders", to: "order#index"

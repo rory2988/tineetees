@@ -5,7 +5,6 @@ describe "an admin can log in" do
 
   it "logs in" do
       login(admin)
-      save_and_open_page
     within ".dashboard" do
       expect(page).to have_content "Hello, #{admin.first_name}"
     end
