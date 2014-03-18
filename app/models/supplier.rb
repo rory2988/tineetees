@@ -1,0 +1,3 @@
+class Supplier < User
+
+end
