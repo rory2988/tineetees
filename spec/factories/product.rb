@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :product do
-    name { Faker::Commerce.product_name } 
+    name { Faker::Name.name } 
     description { Faker::Lorem.sentence }
     image "http://placekitten.com/200/200"
     price { Faker::Number.number(3) }
