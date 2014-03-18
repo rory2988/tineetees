@@ -26,10 +26,11 @@ describe "a supplier can log in" do
 
   def login(supplier)
     visit "/supplier"
-    click_link "Log in"
-    fill_in :email, with: supplier.email
-    fill_in :password, with: supplier.password
-    click_button "Log in"
+    save_and_open_page
+    # click_link "Log in"
+    # fill_in :email, with: supplier.email
+    # fill_in :password, with: supplier.password
+    # click_button "Log in"
   end
 end
 
